@@ -133,11 +133,11 @@ class Comments(models.Model):
         comments = cls.objects.all()
         return comments
 
-    # @classmethod
-    # def get_post_comment(cls,pk):
-    #     post = Posts.get_single_post(pk)
-    #     comments = []
-    #     all_comments = Comments.objects.filter(image_id=post.id).all()
-    #     comments += all_comments
-    #     comment_count = len(comments)
-    #     return comments
+    @classmethod
+    def get_post_comment(cls,pk):
+        post = Posts.get_single_post(pk)
+        comments = []
+        all_comments = Comments.objects.filter(image_id=post.id).all()
+        comments += all_comments
+        comment_count = len(comments)
+        return comments
