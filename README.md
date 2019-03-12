@@ -1,5 +1,5 @@
 # Socialgram
-#### A clone of Instagram 
+#### A clone of Instagram Application.
 #### By **JOSEPH CHIURI**
 ## Description
 A clone of  Instagram that allows users to post photos ,follow other users and like photos.
