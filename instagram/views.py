@@ -138,21 +138,21 @@ def follow(request,pk):
     return redirect('follow')
 
 
-# # comment section
-# @login_required (login_url='/accounts/register/')
-# def comment(request,pk):
-#     current_user = request.user
-#     post = Posts.get_single_post(pk)
-#     comments = Comments.get_post_comment(post.id)
-#     form = NewCommentsForm(request.POST)
-#     if request.method == 'POST':
-#         if form.is_valid:
-#             comment = form.save(commit=False)
-#             comment.user = current_user
-#             comment.post = post
-#             comment.image_id = post.id
-#             comment.save()
-#             return redirect('home')
-#         else:
-#             form = NewCommentsForm()
-#     return render(request, 'comments/new_comment.html', {"form":form, "post":post, "comments":comments})
+# comment section
+@login_required (login_url='/accounts/register/')
+def comment(request,pk):
+    current_user = request.user
+    post = Posts.get_single_post(pk)
+    comments = Comments.get_post_comment(post.id)
+    form = NewCommentsForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid:
+            comment = form.save(commit=False)
+            comment.user = current_user
+            comment.post = post
+            comment.image_id = post.id
+            comment.save()
+            return redirect('home')
+        else:
+            form = NewCommentsForm()
+    return render(request, 'comments/new_comment.html', {"form":form, "post":post, "comments":comments})
