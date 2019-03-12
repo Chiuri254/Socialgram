@@ -128,14 +128,14 @@ def downvote_posts(request, pk):
 
     return redirect('home')
 
-# # follow
-# @login_required (login_url='/accounts/register/')
-# def follow(request,pk):
-#     current_user = request.user
-#     follow_profile = Profile.objects.get(pk)
-#     following = Follow(user=current_user, profile=follow_profile)
-#     following.save()
-#     return redirect('follow')
+# follow
+@login_required (login_url='/accounts/register/')
+def follow(request,pk):
+    current_user = request.user
+    follow_profile = Profile.objects.get(pk)
+    following = Follow(user=current_user, profile=follow_profile)
+    following.save()
+    return redirect('follow')
 
 
 # comment section
