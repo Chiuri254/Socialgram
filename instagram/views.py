@@ -97,19 +97,19 @@ def profile_pic_update(request, username):
 
 
 
-# like/upvote post
-@login_required (login_url='/accounts/register/')
-def upvote_posts(request, pk):
-    post = Posts.get_single_post(pk)
-    user = request.user
-    user_id = user.id
+# # like/upvote post
+# @login_required (login_url='/accounts/register/')
+# def upvote_posts(request, pk):
+#     post = Posts.get_single_post(pk)
+#     user = request.user
+#     user_id = user.id
 
-    if user.is_authenticated:
-        upvote = post.votes.up(user_id)
-        print(upvote)
-        post.upvote_count = post.votes.count()
-        post.save()
-    return redirect('home')
+#     if user.is_authenticated:
+#         upvote = post.votes.up(user_id)
+#         print(upvote)
+#         post.upvote_count = post.votes.count()
+#         post.save()
+#     return redirect('home')
 
 # dislike/downvote post
 @login_required (login_url='/accounts/register/')
